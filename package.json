@@ -21,7 +21,7 @@
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4",
-    "angular-richedit": "^0.0.21"
+    "angular-richedit": "^0.0.34"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^13.3.2",

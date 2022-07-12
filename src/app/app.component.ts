@@ -1,13 +1,28 @@
-import { Component } from '@angular/core';
-import { DocumentFormat } from 'angular-richedit/documentFormat';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { EleEditComponent } from 'angular-richedit';
 import { OptionsEx } from 'angular-richedit/eleeditintarface';
+import  { DocumentFormat} from 'angular-richedit/documentFormat'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+
+export class AppComponent implements OnInit {
+
+  @ViewChild('richEdit')
+  richEdit: EleEditComponent; 
+
+  ngOnInit(): void {
+  }
+  ngAfterViewInit()
+  {
+    this.richEdit.initRichEditDocument(this.editOption);
+  }
   title = '123';
+
+
+
   editOption: OptionsEx = {
     type: DocumentFormat.Rtf,
     isShowCode: false,
@@ -89,7 +104,6 @@ export class AppComponent {
   }
 
   sss(v: any) {
-    console.log(v, 123);
-    this.editOption.openDocument(this.editOption.documentContent, DocumentFormat.Rtf);
+    this.richEdit.openDocument(this.editOption.documentContent, DocumentFormat.Rtf);
   }
 }
